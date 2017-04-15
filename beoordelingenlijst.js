@@ -30,18 +30,18 @@ function getScore() {
   return(number);
 }
 
-function rating() {
+function Voldoende() {
   var number = getScore();
-  var rate = rates(number);
+  var rate = antwoord(number);
   showResult("Het cijfer is " + number + " en is dus een " + rate + "<br />");
 }
-function otherRate() {
+function Goed() {
   var number = getScore();
-  var rate = rates(number);
+  var rate = antwoord(number);
 
   showResult("De beoordeling is: " + rate + ", want het cijfer is: " + number + "<br />");
 }
-function rates(number) {
+function antwoord(number) {
   if (number <= 49) {
     return("Onvoldoende");
   }
