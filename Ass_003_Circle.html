@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Circle Move</title>
+    
+    <!-- Beter om externe stylesheet te gebruiken. -->
+    <style>
+        #circle {
+            width: 30px;
+            height: 30px;
+            background-color: green;
+            border-radius: 50%;      /* make circle */
+            position: absolute;      /* make absolute for free positioning by using top and left */
+            top: 0;
+            left: 0;
+            /*transition: all 0.5s;*/      /* smoothly move to new position */
+            transition-timing-function: ease-in-out;
+            display: none;
+        }
+    </style>
+</head>
+<body>                             
+    <div id="circle"></div>       
+	<div id="demo"></div>
+	<div id="demo2"></div>
+    
+
+    <!-- javascript -->    
+    <script>
+        var a = 1;
+        function moveCircle(event) {
+            var circle = document.getElementById("circle");
+			circle.style.display = "block";
+			if (a == 0){
+            circle.style.left = (event.clientX - 25) + "px";
+            circle.style.top = (event.clientY - 25) + "px";
+			} else if (a == 1) {
+			circle.style.left = (event.clientX - 15) + "px";
+            circle.style.top = (event.clientY - 15) + "px";
+			
+			}
+        }
+
+        //document.addEventListener("click", moveCircle);
+        document.addEventListener("mousemove", moveCircle);
+
+		function doSomeAction(event) {
+		if (a == 1){
+			document.getElementById("circle").style.backgroundColor = "red";
+			document.getElementById("circle").style.height = "50px";
+			document.getElementById("circle").style.width = "50px";
+			circle.style.left = (event.clientX - 25) + "px";
+            circle.style.top = (event.clientY - 25) + "px";
+			a = 0;
+			} else if(a == 0) {
+			document.getElementById("circle").style.backgroundColor = "green";
+			document.getElementById("circle").style.height = "30px";
+			document.getElementById("circle").style.width = "30px";
+			circle.style.left = (event.clientX - 15) + "px";
+            circle.style.top = (event.clientY - 15) + "px";
+			a = 1;
+			}
+		}
+		document.getElementById("circle").addEventListener("click", doSomeAction);
+    </script>  
+</body>
+</html>
