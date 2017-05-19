@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+	
+    <style>
+		#demo {
+			margin-top: 250px;
+			border-radius: 25px;
+			background-color: red;
+			height: 20px;
+			width: 100px;
+			text-align: center;
+			vertical-align: middle;
+		}
+    </style>
+</head>
+<body onload="timertje();">                             
+	<center><div id="demo">100</div></center>
+    
+
+    <!-- javascript -->    
+    <script>
+	var timer;
+	function timertje(){
+		timer = setInterval(time, 50);
+	}
+	var a = 100;
+	function time() {
+	  if (a == 0) {
+		clearInterval(timer);
+		document.body.style.backgroundColor = "black";
+	  } else {
+	  a--;
+	  document.getElementById("demo").innerHTML = a;
+	  console.log(a);
+	  }
+	}
+	
+    </script>  
+</body>
+</html>
