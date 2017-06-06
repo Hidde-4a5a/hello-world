@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>Circle Move</title>
+    
+    <!-- Beter om externe stylesheet te gebruiken. -->
+    <style>
+        #circle {
+            width: 30px;
+            height: 30px;
+            background-color: green;
+            border-radius: 50%;      /* make circle */
+            position: absolute;      /* make absolute for free positioning by using top and left */
+            top: 0;
+            left: 0;
+            /*transition: all 0.5s;*/      /* smoothly move to new position */
+            transition-timing-function: ease-in-out;
+        }
+    </style>
+</head>
+<body>                             
+    <div id="circle"></div>
+
+    <!-- javascript -->    
+    <script>
+		//array
+        var arr = [];
+		var arr2 = [];
+		
+		//Toevoegen aan array
+        function moveCircle(event) {
+		var x = event.clientX;
+		arr.push(x);
+		
+		var y = event.clientY;
+		arr2.push(y);
+        }
+
+		//Move mouse
+        document.addEventListener("mousemove", moveCircle);
+		
+		//als iemand klikt
+		function doSomeAction(event) {
+		move = setInterval(moveDatDing, 10);
+		}
+		
+		function moveDatDing(){
+		if (typeof arr[0] == 'undefined' && typeof arr2[0] == 'undefined') {
+		 clearInterval(move);
+		} else {
+		circle.style.left = arr[0] + "px";
+		arr.shift();
+		circle.style.top = arr2[0] + "px";
+		arr2.shift();
+		}
+		}
+		
+		document.addEventListener("click", doSomeAction);
+		
+    </script>  
+</body>
+</html>
