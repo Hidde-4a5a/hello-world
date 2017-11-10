@@ -1,0 +1,6 @@
+1. een array
+2. result.employees[1].firstname
+3. result.employees[0].lastname
+4. result.employees[2].id
+5. result.employees[2].firstname = "peter";
+6. result.employees[0].permanentContract = true;
